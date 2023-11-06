@@ -1,4 +1,4 @@
-var HRChainData = artifacts.require("./HRChain.sol");
+var HRChainData = artifacts.require("../contracts/HRChain.sol");
 
 module.exports = function(deployer) {
   deployer.deploy(HRChainData);
