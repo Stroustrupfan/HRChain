@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HRChain Input Form</title>
+  <link rel="stylesheet" href="./css/HRChain_form.css">
+</head>
+
+<body>
+  <div id="Header">
+    <header>
+      <img src="./images/HRChain_logo.jpg" alt="logo">
+    </header>
+  </div>
+
+  <h2>HR Chain Input Form</h2>
+
+  <form id="hrChainForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="userID">User ID:</label><br>
+    <input type="number" id="userID" name="userID"><br>
+    <label for="info">Info:</label><br>
+    <textarea id="info" name="info"></textarea><br>
+    <label for="docCount">Document Count:</label><br>
+    <input type="number" id="docCount" name="docCount"><br>
+    <label for="stageAcc">Stage Account:</label><br>
+    <input type="number" id="stageAcc" name="stageAcc"><br>
+    <label for="docInfo">Document Info:</label><br>
+    <textarea id="docInfo" name="docInfo"></textarea><br>
+    <label for="timestamp">Timestamp:</label><br>
+    <input type="number" id="timestamp" name="timestamp"><br>
+    <label for="hash">Hash:</label><br>
+    <input type="text" id="hash" name="hash"><br>
+    <label for="signature">Signature:</label><br>
+    <input type="text" id="signature" name="signature"><br>
+    <input type="submit" value="Submit">
+  </form>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="src/js/app.js"></script>
+
+</body>
+
+</html>
