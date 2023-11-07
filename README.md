@@ -14,6 +14,8 @@ Node v20.9.0
 Web3.js v1.10.0
 ```
 
+Otherwise, run ``` npm install -g truffle ``` to install truffle.
+
 Run ```truffle compile``` to compile the contracts:
 ```
 Compiling your contracts...
