@@ -1,4 +1,4 @@
-document.getElementById('hrChainForm').addEventListener('submit', function(e) {
+document.getElementById('hrChainForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
   var name = document.getElementById('name').value;
@@ -15,19 +15,22 @@ document.getElementById('hrChainForm').addEventListener('submit', function(e) {
   if (typeof window.ethereum !== 'undefined') {
     var Web3 = require('web3');
     var web3 = new Web3(window.ethereum);
-    var contractAddress = ""; // replace with your contract address
+    const contractJson = require('../build/contracts/HR_Chain.json');
+
+    const abi = contractJson.abi;
+    var contractAddress = "0x5B38Da6a701c568545dCfcB03FcB875f56beddC4"; // replace with your contract address
     var contract = new web3.eth.Contract(abi, contractAddress);
 
     contract.methods.register_client(name, userID, info, docCount, stageAcc, docInfo, timestamp, hash, signature)
-      .send({from: '0xYourAccount'}) // replace with your account address
-      .on('receipt', function(receipt){
+      .send({ from: '0xYourAccount' }) // replace with your account address
+      .on('receipt', function (receipt) {
         console.log(receipt);
       })
-      .on('confirmation', function(confirmationNumber, receipt){
+      .on('confirmation', function (confirmationNumber, receipt) {
         console.log('Confirmation number: ', confirmationNumber);
         console.log('Receipt: ', receipt);
       })
-      .on('error', function(error, receipt) {
+      .on('error', function (error, receipt) {
         console.log('Error: ', error);
         console.log('Receipt: ', receipt);
       });

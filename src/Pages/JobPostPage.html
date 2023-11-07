@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Job Post Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .job-post {
+            border: 1px solid #000;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .job-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .job-description {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Job Post Website</h1>
+    <div id="job-board"></div>
+
+    <script>
+        var jobPosts = [
+            {
+                title: 'Software Engineer',
+                company: 'Tech Corp',
+                description: 'We are looking for a Software Engineer...',
+                requirement: 'Bachelor\'s degree in Computer Science or related field, experience with JavaScript and Python.',
+                salary: '$70,000 - $90,000'
+            },
+            {
+                title: 'Data Analyst',
+                company: 'Data Inc',
+                description: 'We are looking for a Data Analyst...',
+                requirement: 'Bachelor\'s degree in Mathematics or Statistics, experience with SQL and Excel.',
+                salary: '$60,000 - $80,000'
+            },
+            {
+                title: 'Product Manager',
+                company: 'Innovate Startup',
+                description: 'Seeking a Product Manager with 5+ years of experience...',
+                requirement: 'Bachelor\'s degree in Business or related field, experience with product lifecycle management.',
+                salary: '$80,000 - $100,000'
+            },
+            {
+                title: 'Marketing Specialist',
+                company: 'Marketing LLC',
+                description: 'Looking for a Marketing Specialist to join our team...',
+                requirement: 'Bachelor\'s degree in Marketing or related field, experience with digital marketing strategies.',
+                salary: '$50,000 - $70,000'
+            },
+            {
+                title: 'Sales Representative',
+                company: 'Sales Corp',
+                description: 'Hiring a motivated Sales Representative...',
+                requirement: 'High school diploma, excellent communication skills, and experience in a sales role.',
+                salary: '$40,000 - $60,000'
+            },
+            {
+                title: 'Graphic Designer',
+                company: 'Design Studio',
+                description: 'In search of a creative Graphic Designer...',
+                requirement: 'Bachelor\'s degree in Graphic Design or related field, proficiency in Adobe Creative Suite.',
+                salary: '$45,000 - $65,000'
+            },
+            {
+                title: 'Web Developer',
+                company: 'Tech Solutions',
+                description: 'We need a skilled Web Developer...',
+                requirement: 'Bachelor\'s degree in Web Development or related field, experience with HTML, CSS, and JavaScript.',
+                salary: '$60,000 - $80,000'
+            },
+            {
+                title: 'HR Manager',
+                company: 'HR Partners',
+                description: 'Looking for an experienced HR Manager...',
+                requirement: 'Bachelor\'s degree in Human Resources or related field, experience in an HR role.',
+                salary: '$70,000 - $90,000'
+            },
+            {
+                title: 'Financial Analyst',
+                company: 'Finance Group',
+                description: 'Hiring a detail-oriented Financial Analyst...',
+                requirement: 'Bachelor\'s degree in Finance or related field, experience with financial modeling.',
+                salary: '$65,000 - $85,000'
+            },
+            {
+                title: 'Project Manager',
+                company: 'Projects Inc',
+                description: 'Seeking a certified Project Manager...',
+                requirement: 'Bachelor\'s degree in Business or related field, PMP certification.',
+                salary: '$75,000 - $95,000'
+            },
+            {
+                title: 'Network Administrator',
+                company: 'IT Networks',
+                description: 'In need of a Network Administrator with Cisco certification...',
+                requirement: 'Bachelor\'s degree in Information Technology or related field, Cisco certification.',
+                salary: '$70,000 - $90,000'
+            }
+        ];
+
+        var jobBoard = document.getElementById('job-board');
+
+        for (var i = 0; i < jobPosts.length; i++) {
+            var jobPost = document.createElement('div');
+            jobPost.className = 'job-post';
+
+            var jobTitle = document.createElement('div');
+            jobTitle.className = 'job-title';
+            jobTitle.textContent = jobPosts[i].title + ' at ' + jobPosts[i].company;
+
+            var jobDescription = document.createElement('div');
+            jobDescription.className = 'job-description';
+            jobDescription.textContent = jobPosts[i].description;
+
+            var jobRequirement = document.createElement('div');
+            jobRequirement.className = 'job-requirement';
+            jobRequirement.textContent = 'Requirements: ' + jobPosts[i].requirement;
+
+            var jobSalary = document.createElement('div');
+            jobSalary.className = 'job-salary';
+            jobSalary.textContent = 'Salary: ' + jobPosts[i].salary;
+
+            jobPost.appendChild(jobTitle);
+            jobPost.appendChild(jobDescription);
+            jobPost.appendChild(jobRequirement);
+            jobPost.appendChild(jobSalary);
+
+            jobBoard.appendChild(jobPost);
+        }
+    </script>
+</body>
+
+</html>

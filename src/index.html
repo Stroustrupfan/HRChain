@@ -4,6 +4,7 @@
 <head>
   <title>HRChain Input Form</title>
   <link rel="stylesheet" href="./css/HRChain_form.css">
+
 </head>
 
 <body>
@@ -17,32 +18,36 @@
 
   <form id="hrChainForm">
     <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required placeholder="Enter your name"><br>
+    <input type="text" id="name" name="name" value="Test Name" required placeholder="Enter your name"><br>
     <label for="userID">User ID:</label><br>
-    <input type="number" id="userID" name="userID" required min="1" max="9999" placeholder="Enter your user ID"><br>
+    <input type="number" id="userID" name="userID" value="1234" required min="1" max="9999" placeholder="Enter your user ID"><br>
     <label for="info">Info:</label><br>
-    <textarea id="info" name="info" required placeholder="Enter your info"></textarea><br>
+    <textarea id="info" name="info" required placeholder="Enter your info">Test Info</textarea><br>
     <label for="docCount">Document Count:</label><br>
-    <input type="number" id="docCount" name="docCount" required min="0" max="9999" placeholder="Enter document count"><br>
+    <input type="number" id="docCount" name="docCount" value="5" required min="0" max="9999" placeholder="Enter document count"><br>
     <label for="stageAcc">Stage Account:</label><br>
-    <input type="number" id="stageAcc" name="stageAcc" required min="0" max="9999" placeholder="Enter stage account"><br>
+    <input type="number" id="stageAcc" name="stageAcc" value="10" required min="0" max="9999" placeholder="Enter stage account"><br>
     <label for="docInfo">Document Info:</label><br>
-    <textarea id="docInfo" name="docInfo" required placeholder="Enter document info"></textarea><br>
+    <textarea id="docInfo" name="docInfo" required placeholder="Enter document info">Test Document Info</textarea><br>
     <label for="timestamp">Timestamp:</label><br>
-    <input type="number" id="timestamp" name="timestamp" required placeholder="Enter timestamp"><br>
+    <input type="number" id="timestamp" name="timestamp" value="1622640000" required placeholder="Enter timestamp"><br>
     <label for="hash">Hash:</label><br>
-    <input type="text" id="hash" name="hash" required pattern="^[a-fA-F0-9]{64}$" placeholder="Enter hash"><br>
+    <input type="text" id="hash" name="hash" value="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef" required pattern="^[a-fA-F0-9]{64}$" placeholder="Enter hash"><br>
     <label for="signature">Signature:</label><br>
-    <input type="text" id="signature" name="signature" required placeholder="Enter signature"><br>
+    <input type="text" id="signature" name="signature" value="Test Signature" required placeholder="Enter signature"><br>
     <input type="submit" value="Submit">
   </form>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
+
   <script src="js/bootstrap.min.js"></script>
   <script src="js/web3.min.js"></script>
   <script src="js/truffle-contract.js"></script>
-  <script src="src/js/app.js"></script>
+  <script src="js/formScript.js"></script>
+
+  <!-- <script src="js/web3SetUp.js"></script>
+  <script src="js/parseData.js"></script> -->
 
 </body>
 

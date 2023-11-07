@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Application</title>
+</head>
+<body>
+    <h1>Job Application</h1>
+    <form id="application-form">
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone"><br>
+        <label for="linkedin">LinkedIn Profile (optional):</label><br>
+        <input type="text" id="linkedin" name="linkedin"><br>
+        <label for="resume">Upload Resume:</label><br>
+        <input type="file" id="resume" name="resume"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('application-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log('Full Name: ' + document.getElementById('name').value);
+            console.log('Email: ' + document.getElementById('email').value);
+            console.log('Phone Number: ' + document.getElementById('phone').value);
+            console.log('LinkedIn Profile: ' + document.getElementById('linkedin').value);
+            console.log('Resume: ' + document.getElementById('resume').value);
+        });
+    </script>
+</body>
+</html>

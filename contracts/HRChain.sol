@@ -105,20 +105,6 @@ contract HR_Chain {
         return clientList;
     }
 
-    //---------------------------Client Management---------------------------
-
-    /*  Explanation for account registeration
-    For the 2 function named accRequest & register_client,
-    they both enables registeration of a client account.
-
-    While the former one enables a user to register themselves,
-    which has to be verified and activate by an admin by proof such as HKID.
-
-    and the latter one is used by an admin to register a client.
-    (no need further verification)
-
-*/
-    //Client register an account by themselves
     function accRequest() external {
         require(msg.sender != admin, "Cannot register an admin account.");
         isExistingClient(msg.sender);
@@ -126,19 +112,15 @@ contract HR_Chain {
 
         generate_ClientID();
 
-        //assigning default values for name and ID, which can be modified by Client later stage
         client[msg.sender].name = userID;
         client[msg.sender].userID = clientNo;
 
-        //assigns the mapping variables
         client[msg.sender].docCount = 0;
         client[msg.sender].stageAcc = uint8(stageAcc.Init); //0
 
-        //Append address to the dynamic array
         clientList.push(msg.sender);
     }
 
-    //In this function, admin would register acc for the client
     function register_client(address _addressClient) external adminOnly {
         require(_addressClient != admin);
         isExistingClient(_addressClient);
@@ -146,56 +128,45 @@ contract HR_Chain {
 
         generate_ClientID();
 
-        //assigning default values for name and ID, which can be modified by Client later stage
         client[_addressClient].name = userID;
         client[_addressClient].userID = clientNo;
 
-        //assigns the mapping variables
         client[_addressClient].docCount = 0;
         client[_addressClient].stageAcc = uint8(stageAcc.Init); //0
 
-        //verify and activate the client account
         client[_addressClient].stageAcc = uint8(stageAcc.AccVerified);
 
-        //Append address to the dynamic array
         clientList.push(_addressClient);
     }
 
-    //Admin staff would have to verify and activate the client's account
-    //if the account is self-registerated
     function verifyAcc(address _address) public adminOnly {
-        //check whether the inputted address is in the registered_patient array
+
         isExistingClient(_address);
         require(isClient, "CLient not found.");
 
-        isClient = false; //reset status
+        isClient = false;
 
         if (client[_address].stageAcc == uint8(stageAcc.Init)) {
             client[_address].stageAcc = uint8(stageAcc.AccVerified);
         }
     }
 
-    //Client would be able to set their username/display name
     function set_username(string memory _name) external clientOnly {
         client[msg.sender].name = _name;
     }
 
-    //Client can add infor such as their self introduction to their profile
     function add_info(string[] memory _info) external clientOnly {
         client[msg.sender].info = _info;
     }
 
-    //to view the info
     function return_info(
         address _address
     ) external view returns (string[] memory) {
         return client[_address].info;
     }
 
-    //allows light clients to react on changes efficiently
     event paymentSettled(address from, address to, uint amount);
 
-    //Directly send payment to hospital
     function make_payment(
         address payable toAddress
     ) public payable clientOnly validAcc(msg.sender) {
@@ -213,10 +184,8 @@ contract HR_Chain {
         address _address,
         string memory message
     ) public accessedOnly returns (string memory) {
-        //if the address is in the clientList
         for (uint8 i = 0; i < clientList.length; i++) {
             if (_address == clientList[i]) {
-                //client[_address].[docCount];
                 docMessage = string(
                     abi.encodePacked(
                         client[_address].name,
@@ -233,7 +202,6 @@ contract HR_Chain {
             }
         }
 
-        // If the function reaches this point, the patient was not found in the clientList array.
         revert("Client not found.");
     }
 
